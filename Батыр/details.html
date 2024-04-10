@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Подробная информация</title>
+<link rel="stylesheet" href="styless.css">
+</head>
+<body>
+<div class="container">
+  <div class="details">
+    <img src="person1.jpg" alt="Person 1">
+    <div class="info">
+      <h3>Имя Фамилия</h3>
+      <p>Возраст: <span id="age"></span></p>
+      <!-- <p>Пол: <span id="gender"></span></p> -->
+      <p>Регион: <span id="region"></span></p>
+      <p>График работы: <span id="schedule"></span></p>
+      <p>Желаемая зарплата: <span id="salary"></span></p>
+      <p>О себе: <span id="about"></span></p>
+    </div>
+  </div>
+
+  <div class="comments">
+    <h2>Комментарии</h2>
+    <form id="commentForm">
+      <textarea id="commentText" placeholder="Оставьте ваш комментарий"></textarea><br>
+      <input type="submit" value="Отправить">
+    </form>
+    <div id="commentList"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

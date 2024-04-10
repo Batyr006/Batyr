@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Заполнить анкету </title>
+    <link rel="stylesheet" href="newresume.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  
+  <div class="container">
+    <div class="title">Registration</div>
+
+    <div class="content">
+        <form id="registrationForm" action="#">
+        <div class="user-details">
+
+          <div class="input-box">
+            <span class="details">Имя</span>
+            <input type="text" name = "firstname" placeholder="Введите ваше имя" required>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Фамилия</span>
+            <input type="text" name = "surname" placeholder="Введите вашу фамилию" required>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Возраст:</span>
+                <select name="raion" class="details" id="raion_old">
+                    <option value="none">Выберите ваш возраст</option>
+                    <option value="18-21">18-21</option>
+                    <option value="21-24">21-24</option>
+                    <option value="24+">24+</option>    
+                </select>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Район:</span>
+                <select name="raion" class="details" id="raion">
+                    <option value="none">Выберите район</option>
+                    <option value="alatau">Алатауский</option>
+                    <option value="almalin">Алмалинский</option>    
+                    <option value="auezov">Ауэзовский</option>
+                    <option value="bostan">Бостандыкский</option>
+                    <option value="zhetysu">Жетысуский</option>
+                    <option value="medeu">Медеуский</option>
+                    <option value="naurizbai">Наурызбайский</option>
+                    <option value="turksib">Турксибский</option>
+                </select>
+          </div>
+          <div class="input-box">
+            <span class="details">Электронная почта</span>
+            <input type="text" name="email" placeholder="Введите вашу почту" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Телефон</span>
+            <input type="text" name="phone_number" placeholder="+7 (xxx) xxx xx xx" required>
+          </div>
+
+          <div class="input-box">
+            <span class="details">График работы:</span>
+                <select name="raion" class="details" id="graph">
+                    <option value="none">Выберите график</option>
+                    <option value="full-day">Полный день</option>
+                    <option value="smen-day">Сменный график</option>
+                    <option value="gib-day">Гибкий график</option>
+                </select>
+          </div>
+          
+          <div class="input-box">
+            
+            <span class="details">Опыт работы</span>
+            <input type="number" name="experience" placeholder="На пример: 2 года" required>
+          </div>
+
+          <div class="input-box">
+            <span class="details">О себе</span>
+            <input type="text" name="about_yourself" placeholder="Расскажите немного о себе..." required>
+          </div>
+          <div class="input-box">
+            <span class="details">Желаемая зарплата</span>
+                <select name="raion" class="details" id="raion_salary">
+                    <option value="none">Выберите зарплату</option>
+                    <option value="15-20">150 000-200 000</option>
+                    <option value="20-30">200 000-300 000</option>
+                    <option value="30-40">300 000-400 000</option>
+                    <option value="40+">400 000+</option> 
+                </select>
+          </div>
+          
+        </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1">
+          <input type="radio" name="gender" id="dot-2">
+          <span class="gender-title">Выберите пол:</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Мужской</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Женский</span>
+          </label>
+        </div>
+        <div class="button">
+          <button onclick="sendData(event)">Submit</button>
+          <!-- <input type="submit" value="Заполнить"> -->
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="newresume.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</body>
+</html>

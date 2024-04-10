@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Каталог</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container" id="catalogContainer"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const catalogContainer = document.getElementById('catalogContainer');
+
+      fetch('http://localhost:8080/api/users')
+              .then(response => {
+                if (!response.ok) {
+                  throw new Error('Network response was not ok');
+                }
+                return response.json();
+              })
+              .then(responseData => {
+                console.log('Data received:', responseData);
+
+                const data = responseData.data;
+                if (!Array.isArray(data)) {
+                  throw new Error('Data is not an array');
+                }
+
+                data.forEach(person => {
+                  const catalogDiv = document.createElement('div');
+                  catalogDiv.classList.add('catalog');
+                  // Attach event listener to call showDetails function
+                  catalogDiv.addEventListener('click', function() {
+                    showDetails(person.id); // Assuming 'id' is the unique identifier for each person
+                  });
+
+                  const img = document.createElement('img');
+                  img.src = `person1.jpg`;
+                  img.alt = person.firstname;
+
+                  const detailsDiv = document.createElement('div');
+                  detailsDiv.classList.add('details');
+
+                  const h3 = document.createElement('h3');
+                  h3.textContent = (person.firstname || '') + ' ' + (person.surname || '');
+
+                  const ageP = document.createElement('p');
+                  ageP.textContent = 'Возраст: ' + (person.age || ''); // Changed to person.age
+
+                  const experienceP = document.createElement('p');
+                  experienceP.textContent = 'Опыт работы: ' + (person.experience || ''); // Changed to person.experience
+
+                  detailsDiv.appendChild(h3);
+                  detailsDiv.appendChild(ageP);
+                  detailsDiv.appendChild(experienceP);
+
+                  catalogDiv.appendChild(img);
+                  catalogDiv.appendChild(detailsDiv);
+
+                  catalogContainer.appendChild(catalogDiv);
+                });
+                // data.forEach(person => {
+                //   const catalogDiv = document.createElement('div');
+                //   catalogDiv.classList.add('catalog');
+                //   catalogDiv.onclick = function() {
+                //     showDetails(person.ID);
+                //   };
+
+                //   const img = document.createElement('img');
+                //   img.src = `person1.jpg`;
+                //   img.alt = person.firstname;
+
+                //   const detailsDiv = document.createElement('div');
+                //   detailsDiv.classList.add('details');
+
+                //   const h3 = document.createElement('h3');
+                //   h3.textContent = (person.firstname || '') + ' ' + (person.surname || '');
+
+                //   const ageP = document.createElement('p');
+                //   ageP.textContent = 'Возраст: ' + (person.age || '');
+
+                //   const experienceP = document.createElement('p');
+                //   experienceP.textContent = 'Опыт работы: ' + (person.experience || '');
+
+                //   detailsDiv.appendChild(h3);
+                //   detailsDiv.appendChild(ageP);
+                //   detailsDiv.appendChild(experienceP);
+
+                //   catalogDiv.appendChild(img);
+                //   catalogDiv.appendChild(detailsDiv);
+
+                //   catalogContainer.appendChild(catalogDiv);
+                // });
+              }
+              )
+              .catch(error => console.error('Error fetching data:', error));
+    });
+
+    function showDetails(id) {
+      localStorage.setItem('userId', id);
+      window.location.href = 'details.html';
+    }
+  </script>
+
+
+
+
+
+</body>
+</html>
